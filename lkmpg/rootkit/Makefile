@@ -1,6 +1,7 @@
-obj-m += rootkit.o
-all:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+obj-m	:= rootkit.o
 
-clean:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+KDIR    := /lib/modules/$(shell uname -r)/build
+PWD    := $(shell pwd)
+
+default:
+	$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
