@@ -1,4 +1,4 @@
-obj-m	:= syscall.o
+obj-m	:= syscall3.o
 
 KDIR    := /lib/modules/$(shell uname -r)/build
 PWD    := $(shell pwd)
