@@ -10,10 +10,10 @@
 #include <linux/sched.h>
 #include <linux/kallsyms.h>
 
-unsigned long *syscall_table = (unsigned long *)0xc05d2180; 
+unsigned long *syscall_table = (unsigned long *)0xc15b5020; 
 
-void (*pages_rw)(struct page *page, int numpages) = (void *) 0xc012fbb0;
-void (*pages_ro)(struct page *page, int numpages) = (void *) 0xc012fe80;
+void (*pages_rw)(struct page *page, int numpages) = (void *) 0xc1039680;
+void (*pages_ro)(struct page *page, int numpages) = (void *) 0xc1039660;
 
 asmlinkage int (*original_write)(unsigned int, const char __user *, size_t);
 

